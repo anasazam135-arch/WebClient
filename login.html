@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Web Client</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo-mark">WC</div>
+        <div>
+          <div class="brand-title">Web Client</div>
+          <div class="helper">Welcome back</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a class="active" href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-pad">
+    <section class="panel fade-in">
+      <div class="section-title">
+        <h2>Login</h2>
+      </div>
+      <p>Use the username and password you created on the registration page.</p>
+
+      <form id="loginForm" class="form-grid" novalidate>
+        <div class="field">
+          <label for="loginUsername">Username</label>
+          <input class="input" id="loginUsername" name="username" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <input class="input" type="password" id="loginPassword" name="password" autocomplete="current-password" required>
+        </div>
+        <div id="loginMessage" class="error" role="alert"></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Enter dashboard</button>
+          <a class="btn btn-outline" href="register.html">Create account</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+
+</html>

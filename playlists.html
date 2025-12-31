@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlists - Web Client</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo-mark">WC</div>
+        <div>
+          <div class="brand-title">Web Client</div>
+          <div class="helper">Your playlists</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+        <a class="active" href="playlists.html">Playlists</a>
+      </nav>
+      <div class="actions">
+        <div id="userBadge" class="user-pill"></div>
+        <button id="logoutBtn" class="btn btn-muted" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-pad">
+    <div class="layout">
+      <aside class="sidebar fade-in">
+        <div class="section-title">
+          <h3>Playlists</h3>
+          <span id="playlistCount" class="count-pill">0</span>
+        </div>
+        <button id="createPlaylistBtn" class="btn btn-primary" type="button">New playlist</button>
+        <div id="playlistList" class="playlist-list"></div>
+      </aside>
+
+      <section class="fade-in" style="animation-delay: 0.1s;">
+        <div class="panel">
+          <div class="section-title">
+            <h2 id="playlistTitle">Select a playlist</h2>
+            <button id="deletePlaylistBtn" class="btn btn-danger" type="button" hidden>Delete playlist</button>
+          </div>
+          <p id="playlistMeta" class="helper"></p>
+          <div class="search-bar">
+            <input id="filterInput" class="input" placeholder="Filter by title or channel">
+            <select id="sortSelect" class="input">
+              <option value="az">Sort A-Z</option>
+              <option value="likes">Sort by likes</option>
+              <option value="newest">Newest first</option>
+            </select>
+          </div>
+        </div>
+
+        <section class="page-pad">
+          <div id="playlistMessage" class="notice" hidden></div>
+          <div id="playlistGrid" class="grid"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <div id="videoModal" class="modal" aria-hidden="true">
+    <div class="modal-content modal-video">
+      <button class="modal-close" data-close aria-label="Close">x</button>
+      <iframe id="videoFrame" title="YouTube player" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div id="createPlaylistModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">x</button>
+      <h3>Create new playlist</h3>
+      <form id="createPlaylistForm" class="form-grid">
+        <div class="field">
+          <label for="playlistName">Playlist name</label>
+          <input id="playlistName" class="input" placeholder="My favorites" required>
+        </div>
+        <div id="createPlaylistMessage" class="error" role="alert"></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Create</button>
+          <button class="btn btn-outline" type="button" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/playlists.js"></script>
+</body>
+
+</html>

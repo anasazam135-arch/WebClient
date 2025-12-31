@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - Web Client</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo-mark">WC</div>
+        <div>
+          <div class="brand-title">Web Client</div>
+          <div class="helper">Search YouTube</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="search.html">Search</a>
+        <a href="playlists.html">Playlists</a>
+      </nav>
+      <div class="actions">
+        <div id="userBadge" class="user-pill"></div>
+        <button id="logoutBtn" class="btn btn-muted" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-pad">
+    <section class="panel fade-in">
+      <div class="section-title">
+        <h2>Search videos</h2>
+        <span id="welcomeBadge" class="badge"></span>
+      </div>
+      <p>Search by song title or artist name and build playlists from the results.</p>
+
+      <div id="apiNotice" class="notice" hidden>
+        Add your YouTube API key in <strong>web-client/js/config.js</strong> to enable search.
+      </div>
+
+      <div class="search-bar">
+        <input id="searchInput" class="input" placeholder="Search for a song or artist" autocomplete="off">
+        <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
+        <button id="clearBtn" class="btn btn-outline" type="button">Clear</button>
+      </div>
+    </section>
+
+    <section class="page-pad">
+      <div id="resultsMessage" class="notice" hidden></div>
+      <div id="resultsGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <div id="videoModal" class="modal" aria-hidden="true">
+    <div class="modal-content modal-video">
+      <button class="modal-close" data-close aria-label="Close">x</button>
+      <iframe id="videoFrame" title="YouTube player" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div id="playlistModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">x</button>
+      <h3>Add to playlist</h3>
+      <p id="playlistVideoTitle" class="helper"></p>
+      <form id="playlistForm" class="form-grid">
+        <div class="field">
+          <label for="playlistSelect">Choose playlist</label>
+          <select id="playlistSelect" class="input"></select>
+        </div>
+        <div class="field" id="newPlaylistField">
+          <label for="newPlaylistName">New playlist name</label>
+          <input id="newPlaylistName" class="input" placeholder="My new playlist">
+        </div>
+        <div id="playlistMessage" class="error" role="alert"></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Save video</button>
+          <button class="btn btn-outline" type="button" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/search.js"></script>
+</body>
+
+</html>
